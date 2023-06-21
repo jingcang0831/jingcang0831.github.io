@@ -75,6 +75,11 @@
   </style>
 </noscript>
 
+  <!-- 樱花特效 -->
+  
+      <script async src="/js/src/fairyDustCursor.js"></script>
+  
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -130,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -188,11 +193,324 @@
 
           <div class="content index posts-expand">
             
+  
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+
+.glyphicon-chevron-left:before{
+	content: "《"
+}
+.glyphicon-chevron-right:before{
+	content: "》"
+}
+
+@media (max-width: 767px){
+	.rights{
+		display: none;
+	}
+	.carousel{
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.slide{
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+}
+
+.carousel{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  font-family: serif;
+}
+.carousel-control .icon-prev:before {
+  content: '\2039';
+}
+.carousel-control .icon-next:before {
+  content: '\203a';
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -10px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+</style>
+<div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px;" scrolling="no">
+			
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" >
+		<!-- 轮播（Carousel）指标 -->
+		<ol class="carousel-indicators">
+		
+		
+
+			<li data-target="#myCarousel" data-slide-to="0"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			
+
+		
+		</ol>
+		<!-- 轮播（Carousel）项目 -->
+		<div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+
+		
+		 
+		
+	    	
+				<a class="item active" href="/%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A51" target="_blank" style="height: 100%;">
+					<img src="图片链接1"   style="width: 100%; height: 100%" >
+				</a>
+				
+				
+
+		
+		
+	    	
+					<a class="item" href="/%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A52" target="_blank" style="height: 100%;">
+						<img src="图片链接2"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+
+	 
+		</div>
+		<!-- 轮播（Carousel）导航 -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		   
+		</a>
+	</div> 
+</div>
+
+
+
       
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/19/spring/spring-ioc-demo/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/19/mq/RocketMq/RocketMq%EF%BC%88%E4%B8%89%EF%BC%89-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/39.jpg">
@@ -206,7 +524,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/06/19/spring/spring-ioc-demo/" class="post-title-link" itemprop="url">spring-ioc-demo</a>
+            <a href="/2023/06/19/mq/RocketMq/RocketMq%EF%BC%88%E4%B8%89%EF%BC%89-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">RocketMq（三）--快速入门</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +535,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-06-19 09:21:46 / 修改时间：09:26:12" itemprop="dateCreated datePublished" datetime="2023-06-19T09:21:46+08:00">2023-06-19</time>
+              <time title="创建时间：2023-06-19 10:09:19 / 修改时间：10:15:15" itemprop="dateCreated datePublished" datetime="2023-06-19T10:09:19+08:00">2023-06-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +543,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+                  <a href="/mq/" itemprop="url" rel="index"><span itemprop="name">mq</span></a>
                 </span>
             </span>
 
@@ -240,8 +558,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>部分关于spring-ioc源码简单手写</p>
-<p>gitee地址：<a target="_blank" rel="noopener" href="https://gitee.com/zhangying17865151388/spring-ioc-demo.git">https://gitee.com/zhangying17865151388/spring-ioc-demo.git</a></p>
+          <h1 id="RocketMQ快速入门"><a href="#RocketMQ快速入门" class="headerlink" title="RocketMQ快速入门"></a>RocketMQ快速入门</h1><p>RocketMQ提供了发送多种发送消息的模式，例如同步消息，异步消息，顺序消息，延迟消息，事务消息等，我们一一学习</p>
+<h2 id="消息发送和监听的流程"><a href="#消息发送和监听的流程" class="headerlink" title="消息发送和监听的流程"></a>消息发送和监听的流程</h2><p>我们先搞清楚消息发送和监听的流程，然后我们在开始敲代码</p>
+<h3 id="消息生产者"><a href="#消息生产者" class="headerlink" title="消息生产者"></a>消息生产者</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.创建消息生产者producer，并制定生产者组名                            </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">2</span>.指定Nameserver地址                                                  </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">3</span>.启动producer                                                        </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">4</span>.创建消息对象，指定主题Topic、<span class="keyword">Tag</span>和消息体等                          </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">5</span>.发送消息                                                            </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">6</span>.关闭生产者producer         </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="消息消费者"><a href="#消息消费者" class="headerlink" title="消息消费者"></a>消息消费者</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.创建消费者consumer，制定消费者组名                                  </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">2</span>.指定Nameserver地址                                                  </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">3</span>.创建监听订阅主题Topic和<span class="keyword">Tag</span>等                                        </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">4</span>.处理消息                                                            </span><br><span class="line">                                                                      </span><br><span class="line"><span class="number">5</span>.启动消费者consumer                                                  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="搭建Rocketmq-demo"><a href="#搭建Rocketmq-demo" class="headerlink" title="搭建Rocketmq-demo"></a>搭建Rocketmq-demo</h2><h3 id="加入依赖"><a href="#加入依赖" class="headerlink" title="加入依赖"></a>加入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                                      </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>                                                        </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>                            </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>                          </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span>                                          </span><br><span class="line">                                                                       </span><br><span class="line"><span class="comment">&lt;!--docker的用下面这个版本--&gt;</span>                                     </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span>                                          </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>                                                       </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>                                                        </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>                                          </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>                                    </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span>                                           </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>                                                       </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>                                                        </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>                              </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>                                   </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span>                                        </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>                                                       </span><br><span class="line">                                                                       </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span>          </span><br></pre></td></tr></table></figure>
+
+<h3 id="编写生产者"><a href="#编写生产者" class="headerlink" title="编写生产者"></a>编写生产者</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"> *<span class="comment">/***                                                               </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> ** 测试生产者*                                                       </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> ***                                                                  </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> **<span class="doctag">@throws</span> Exception*                                               </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> **/</span>*                                                                 </span><br><span class="line">                                                                       </span><br><span class="line"><span class="meta">@Test</span>                                                                </span><br><span class="line">                                                                       </span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testProducer</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;                         </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 创建默认的生产者*                                                 </span></span><br><span class="line">                                                                       </span><br><span class="line"> <span class="type">DefaultMQProducer</span> <span class="variable">producer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DefaultMQProducer</span>(<span class="string">&quot;test-group&quot;</span>);   </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 设置nameServer地址*                                               </span></span><br><span class="line">                                                                       </span><br><span class="line"> producer.setNamesrvAddr(<span class="string">&quot;localhost:9876&quot;</span>);                          </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 启动实例*                                                         </span></span><br><span class="line">                                                                       </span><br><span class="line"> producer.start();                                                     </span><br><span class="line">                                                                       </span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt; <span class="number">10</span>; i++) &#123;                                       </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 创建消息*                                                         </span></span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 第一个参数：主题的名字*                                           </span></span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 第二个参数：消息内容*                                             </span></span><br><span class="line">                                                                       </span><br><span class="line"> <span class="type">Message</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>(<span class="string">&quot;TopicTest&quot;</span>, (<span class="string">&quot;Hello RocketMQ&quot;</span> +       </span><br><span class="line"> i).getBytes());                                                       </span><br><span class="line">                                                                       </span><br><span class="line"> <span class="type">SendResult</span> <span class="variable">send</span> <span class="operator">=</span> producer.send(msg);                                 </span><br><span class="line">                                                                       </span><br><span class="line"> System.*out*.println(send);                                           </span><br><span class="line">                                                                       </span><br><span class="line"> &#125;                                                                     </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 关闭实例*                                                         </span></span><br><span class="line">                                                                       </span><br><span class="line"> producer.shutdown();                                                  </span><br><span class="line">                                                                       </span><br><span class="line"> &#125;          </span><br></pre></td></tr></table></figure>
+
+<p>​                                                           </p>
+<h3 id="编写消费者"><a href="#编写消费者" class="headerlink" title="编写消费者"></a>编写消费者</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"> *<span class="comment">/***                                                               </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> ** 测试消费者*                                                       </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> ***                                                                  </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> **<span class="doctag">@throws</span> Exception*                                               </span></span><br><span class="line"><span class="comment">                                                                       </span></span><br><span class="line"><span class="comment"> **/</span>*                                                                 </span><br><span class="line">                                                                       </span><br><span class="line"><span class="meta">@Test</span>                                                                </span><br><span class="line">                                                                       </span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testConsumer</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;                         </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 创建默认消费者组*                                                 </span></span><br><span class="line">                                                                       </span><br><span class="line"> <span class="type">DefaultMQPushConsumer</span> <span class="variable">consumer</span> <span class="operator">=</span> <span class="keyword">new</span>                                  </span><br><span class="line"> <span class="title class_">DefaultMQPushConsumer</span>(<span class="string">&quot;consumer-group&quot;</span>);                            </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 设置nameServer地址*                                               </span></span><br><span class="line">                                                                       </span><br><span class="line"> consumer.setNamesrvAddr(<span class="string">&quot;localhost:9876&quot;</span>);                          </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 订阅一个主题来消费*表示没有过滤参数 表示这个主题的任何消息*     </span></span><br><span class="line">                                                                       </span><br><span class="line"> consumer.subscribe(<span class="string">&quot;TopicTest&quot;</span>,<span class="string">&quot;*&quot;</span>);                            </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 注册一个消费监听 MessageListenerConcurrently                      </span></span><br><span class="line"> 是多线程消费，默认<span class="number">20</span>个线程，可以参看consumer.setConsumeThreadMax()*   </span><br><span class="line">                                                                       </span><br><span class="line"> consumer.registerMessageListener(<span class="keyword">new</span> <span class="title class_">MessageListenerConcurrently</span>() &#123;  </span><br><span class="line">                                                                       </span><br><span class="line"><span class="meta">@Override</span>                                                            </span><br><span class="line">                                                                       </span><br><span class="line"> <span class="keyword">public</span> ConsumeConcurrentlyStatus <span class="title function_">consumeMessage</span><span class="params">(List&lt;MessageExt&gt;    </span></span><br><span class="line"><span class="params"> msgs,                                                                 </span></span><br><span class="line"><span class="params">                                                                       </span></span><br><span class="line"><span class="params"> ConsumeConcurrentlyContext context)</span> &#123;                                 </span><br><span class="line">                                                                       </span><br><span class="line"> System.*out*.println(Thread.*currentThread*().getName() +             </span><br><span class="line"><span class="string">&quot;----&quot;</span> + msgs);                                                  </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 返回消费的状态 如果是CONSUME_SUCCESS                              </span></span><br><span class="line"> 则成功，若为RECONSUME_LATER则该条消息会被重回队列，重新被投递*        </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 重试的时间为messageDelayLevel =&quot;1s 5s 10s 30s 1m 2m 3m 4m 5m 6m </span></span><br><span class="line"> 7m 8m 9m 10m 20m 30m 1h 2h*                                           </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 也就是第一次1s 第二次5s 第三次10s.... 如果重试了18次            </span></span><br><span class="line"> 那么这个消息就会被终止发送给消费者*                                   </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;*                </span></span><br><span class="line">                                                                       </span><br><span class="line"> <span class="keyword">return</span> ConsumeConcurrentlyStatus.*RECONSUME_LATER*;                   </span><br><span class="line">                                                                       </span><br><span class="line"> &#125;                                                                     </span><br><span class="line">                                                                       </span><br><span class="line"> &#125;);                                                                   </span><br><span class="line">                                                                       </span><br><span class="line"> *<span class="comment">// 这个start一定要写在registerMessageListener下面*                   </span></span><br><span class="line">                                                                       </span><br><span class="line"> consumer.start();                                                     </span><br><span class="line">                                                                       </span><br><span class="line"> System.*in*.read();                                                   </span><br><span class="line">                                                                       </span><br><span class="line"> &#125;                                                                     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动生产者和消费者进行测试</p>
 
       
     </div>
@@ -260,7 +596,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/index.md/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/index.md/">1</a><a class="page-number" href="/index.md/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/index.md/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/index.md/page/10/">10</a><a class="extend next" rel="next" href="/index.md/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/index.md/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/index.md/">1</a><a class="page-number" href="/index.md/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/index.md/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/index.md/page/13/">13</a><a class="extend next" rel="next" href="/index.md/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -328,7 +664,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

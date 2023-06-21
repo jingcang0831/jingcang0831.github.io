@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1c2e82;
+  background: #062153;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2651,4 +2651,12 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+/*鼠标样式*/
+body {
+  background: url("/images/38.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
 }
